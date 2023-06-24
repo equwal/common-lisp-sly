@@ -30,8 +30,13 @@ Unlike other forks, this one is intended to actually be maintained for public us
 It's been five years since mfiano was working on this project, and it was a bit crusty.
 - [X] Make it work
 - [ ] Fix evil bindings in:
-    - [ ] The debugger
     (Where else? Definitely some other places.)
+    - [ ] The debugger (weird effects with normal mode vs insert mode)
+    - [ ] the repl (while chaning to insert on an empty repl is nice,
+    it can also be annoying, so it should only switch when the user
+    manually opens the repl, and not when the user gets automatically
+    jumped there by automatic windowing.
+    - [ ] make company mode's selection menu more evil-like when vim mode is on.
 
 * Description
 This layer provides support for Common Lisp to Spacemacs using Sly. This layer should be used
