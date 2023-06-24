@@ -10,6 +10,7 @@ Unlike other forks, this one is intended to actually be maintained for public us
 #+END_SRC
 
 * Table of Contents
+- [[#todo][Todo]]
 - [[#description][Description]]
   - [[#features][Features]]
 - [[#layer-installation][Layer Installation]]
@@ -23,6 +24,14 @@ Unlike other forks, this one is intended to actually be maintained for public us
   - [[#repl][REPL]]
   - [[#stickers][Stickers]]
   - [[#tracing][Tracing]]
+
+* Todo
+
+It's been five years since mfiano was working on this project, and it was a bit crusty.
+- [X] Make it work
+- [ ] Fix evil bindings in:
+    - [ ] The debugger
+    (Where else? Definitely some other places.)
 
 * Description
 This layer provides support for Common Lisp to Spacemacs using Sly. This layer should be used
