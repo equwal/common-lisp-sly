@@ -7,7 +7,7 @@
     evil-cleverparens
     parinfer
     sly
-    (sly-company :requires (sly company))
+    (company-sly :requires (sly company))
     (sly-macrostep :requires (sly macrostep))
     (sly-repl-ansi-color :requires sly)))
 
