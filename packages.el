@@ -9,7 +9,7 @@
     smartparens
     company
     sly
-    (company-sly :requires (sly company))
+    (sly-company :requires :location built-in (sly company))
     (sly :requires smartparens)
     (sly-mrepl :requires sly :location built-in)
     (sly-macrostep :requires (sly macrostep))
@@ -162,16 +162,6 @@
   ;; defunct
   ;;(spacemacs|add-company-backends lisp-mode)
   )
-    (mapc (lambda (x)
-            (spacemacs/declare-prefix-for-mode 'lisp-mode (car x) (cdr x)))
-          '(("mc" . "compile")
-            ("me" . "evaluate")
-            ("mg" . "navigation")
-            ("mh" . "help")
-            ("mm" . "macro")
-            ("ms" . "repl")
-            ("mS" . "stickers")
-            ("mt" . "trace")))))
 
 (defun common-lisp-sly/init-sly-mrepl ()
   (use-package sly-mrepl
@@ -187,7 +177,6 @@
   (spacemacs|add-company-backends
     :backends company-capf
     :modes sly-mode sly-mrepl-mode))
->>>>>>> mfiano-archive-time
 
 (defun common-lisp-sly/init-sly-macrostep ()
   (use-package sly-macrostep
