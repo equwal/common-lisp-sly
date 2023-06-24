@@ -1,3 +1,4 @@
+Unlike other forks, this one is intended to actually be maintained for public use. Feel free to make improvements and pull requests.
 #+TITLE: Common Lisp Sly layer
 
 #+BEGIN_SRC text
@@ -30,7 +31,7 @@ environment.
 
 ** Features
 - Syntax highlighting
-- Fuzzy auto-completion using =company=
+- [optional] Fuzzy auto-completion using =company= (see below)
 - REPL and introspection support via [[https://github.com/joaotavora/sly][Sly]]
 - Support for specific Lisp navigation styles via =common-lisp-mode=
 - Support for the [[http://www.sbcl.org/][SBCL]] backend or any other Common Lisp implementation
@@ -77,6 +78,23 @@ or to enable it for all supported modes:
 #+END_SRC
 
 When enabled, the symbol =🆂= should be displayed in the mode line.
+
+* Company completion
+
+Company provides a little pop-up window under the cursor with completions,
+which really beats the default sly choice of opening a whole buffer and
+messing up the layout.
+
+If you only want company for sly, add the mode hooks to `dotspacemacs/user-config`..
+
+`~/.spacemacs`
+#+BEGIN_SRC
+;; only in sly
+(add-hook 'sly-mode-hook 'company-mode)
+(add-hook 'sly-mrepl-mode-hook 'company-mode)
+;; global mode if you want it everywhere
+;(global-company-mode)
+#+END_SRC
 
 * Key Bindings
 ** Working with Lisp files (slurpage, barfage, and more)
