@@ -130,6 +130,7 @@
 
 (defun common-lisp-sly/init-sly-company ()
   (use-package sly-company
+    :after sly
     :config
     (setf sly-company-completion 'fuzzy)
     (add-hook 'sly-mode-hook 'sly-company-mode)
