@@ -105,6 +105,12 @@ If you only want company for sly, add the mode hooks to `dotspacemacs/user-confi
 ;(global-company-mode)
 #+END_SRC
 
+And add the company package too
+#+BEGIN_SRC
+dotspacemacs-additional-packages '(company)
+dotspacemacs-frozen-packages '(company) ; prevent startup slowdown
+#+END_SRC
+
 * Key Bindings
 ** Working with Lisp files (slurpage, barfage, and more)
 Spacemacs comes with a special =lisp-state= for working with Lisp code that supports slurpage, barfage
