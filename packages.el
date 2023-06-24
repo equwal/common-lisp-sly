@@ -47,13 +47,15 @@
 (defun common-lisp-sly/post-init-parinfer ()
   (add-hook 'lisp-mode-hook 'parinfer-mode))
 
+(defun common-lisp-sly/post-init-sly ()
+  ;; where do these belong?
+  (sp-local-pair '(sly-mrepl-mode) "'" "'" :actions nil)
+  (sp-local-pair '(sly-mrepl-mode) "`" "`" :actions nil))
 (defun common-lisp-sly/init-sly ()
   (use-package sly
     :defer t
     :init
     (spacemacs/register-repl 'sly 'sly)
-    (sp-local-pair '(sly-mrepl-mode) "'" "'" :actions nil)
-    (sp-local-pair '(sly-mrepl-mode) "`" "`" :actions nil)
     (evil-set-initial-state 'sly-mrepl-mode 'insert)
     (evil-set-initial-state 'sly-inspector-mode 'emacs)
     (evil-set-initial-state 'sly-db-mode 'emacs)
@@ -66,6 +68,16 @@
           sly-repl-history-trim-whitespaces t
           sly-net-coding-system 'utf-8-unix)
     (sly-setup '(sly-fancy))
+    (mapc (lambda (x)
+            (spacemacs/declare-prefix-for-mode 'lisp-mode (car x) (cdr x)))
+          '(("mc" . "compile")
+            ("me" . "evaluate")
+            ("mg" . "navigation")
+            ("mh" . "help")
+            ("mm" . "macro")
+            ("mr" . "repl")
+            ("mS" . "stickers")
+            ("mt" . "trace")))
     (spacemacs/set-leader-keys-for-major-mode 'lisp-mode
       "'" 'sly
       "ha" 'sly-apropos
@@ -109,16 +121,6 @@
       "tt" 'sly-toggle-trace-fdefinition
       "tT" 'sly-toggle-fancy-trace
       "tu" 'sly-untrace-all)
-    (mapc (lambda (x)
-            (spacemacs/declare-prefix-for-mode 'lisp-mode (car x) (cdr x)))
-          '(("mc" . "compile")
-            ("me" . "evaluate")
-            ("mg" . "navigation")
-            ("mh" . "help")
-            ("mm" . "macro")
-            ("mr" . "repl")
-            ("mS" . "stickers")
-            ("mt" . "trace")))
     (use-package sly-mrepl
       :after sly
       :bind
@@ -139,7 +141,9 @@
 
 (defun common-lisp-sly/post-init-company ()
   '(push '(company-sly company-capf company-dabbrev-code) company-backends-lisp-mode)
-  (spacemacs|add-company-backends lisp-mode))
+  ;; defunct
+  ;;(spacemacs|add-company-backends lisp-mode)
+  )
 
 (defun common-lisp-sly/init-sly-macrostep ()
   (use-package sly-macrostep
