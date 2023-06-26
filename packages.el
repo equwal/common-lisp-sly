@@ -125,6 +125,7 @@
       "g" 'spacemacs/common-lisp-navigation-transient-state/body
       "me" 'sly-macroexpand-1
       "mE" 'sly-macroexpand-all
+      "rr" 'sly-mrepl
       "sc" 'sly-mrepl-clear-repl
       "si" 'sly
       "sq" 'sly-quit-lisp
