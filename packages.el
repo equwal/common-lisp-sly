@@ -49,11 +49,6 @@
 (defun common-lisp-sly/post-init-parinfer ()
   (add-hook 'lisp-mode-hook 'parinfer-mode))
 
-(defun common-lisp-sly/post-init-sly ()
-  ;; where do these belong?
-  (sp-local-pair '(sly-mrepl-mode) "'" "'" :actions nil)
-  (sp-local-pair '(sly-mrepl-mode) "`" "`" :actions nil))
-
 (defun common-lisp-sly/pre-init-evil ()
   (with-eval-after-load 'evil
     (when (configuration-layer/package-used-p 'sly)
